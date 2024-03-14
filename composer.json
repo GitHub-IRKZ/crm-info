@@ -1,0 +1,32 @@
+{
+    "name":              "ir/crm-info",
+    "description":       "IR-crm client for getting info about project",
+    "minimum-stability": "stable",
+    "license":           "MIT",
+    "version":           "1.0.0",
+    "authors":           [
+        {
+            "name":     "Lyos Anatoliy",
+            "email":    "les.anatoliy.92@gmail.com",
+            "homepage": "https://github.com/GitHub-IRKZ/crm-info"
+        }
+    ],
+    "autoload":          {
+        "psr-4": {
+            "Ir\\Crminfo\\": "src"
+        }
+    },
+    "require":           {
+        "ext-json":          "*",
+        "php":               "^8.3.0",
+        "laravel/laravel":   "^8.0",
+        "guzzlehttp/guzzle": "^7.0.1"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ir\\Crminfo\\Providers\\CrmInfoServiceProvider"
+            ]
+        }
+    }
+}
