@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Ir\Crminfo\View\Components;
+namespace Irkz\Crminfo\View\Components;
 
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\Component;

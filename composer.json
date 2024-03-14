@@ -1,5 +1,5 @@
 {
-    "name":              "ir/crm-info",
+    "name":              "irkz/crm-info",
     "description":       "IR-crm client for getting info about project",
     "minimum-stability": "stable",
     "license":           "MIT",
@@ -13,19 +13,19 @@
     ],
     "autoload":          {
         "psr-4": {
-            "Ir\\Crminfo\\": "src"
+            "Irkz\\Crminfo\\": "src/"
         }
     },
     "require":           {
         "ext-json":          "*",
         "php":               "^8.3.0",
-        "laravel/laravel":   "^8.0",
+        "laravel/framework": "^8.0",
         "guzzlehttp/guzzle": "^7.0.1"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Ir\\Crminfo\\Providers\\CrmInfoServiceProvider"
+                "Irkz\\Crminfo\\Providers\\CrmInfoServiceProvider"
             ]
         }
     }

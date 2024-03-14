@@ -1,6 +1,6 @@
-<?php
+<?php declare(strict_types=1);
 
-namespace Ir\Crminfo\Client\Response;
+namespace Irkz\Crminfo\Client\Response;
 
 use Psr\Http\Message\ResponseInterface;
 
@@ -31,7 +31,7 @@ class InformationResponse
      * Заполняет свойство contents сырыми данными ответа
      *
      * @param  string                                          $contents
-     * @return \Ir\Crminfo\Client\Response\InformationResponse
+     * @return \Irkz\Crminfo\Client\Response\InformationResponse
      */
     public function setContents(string $contents): self
     {

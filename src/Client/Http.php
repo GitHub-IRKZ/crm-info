@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace Ir\Crminfo\Client;
+namespace Irkz\Crminfo\Client;
 
 use GuzzleHttp\Client;
-use Ir\Crminfo\Client\Response\InformationResponse;
+use Irkz\Crminfo\Client\Response\InformationResponse;
 
 /**
  * Клиент для получения информации из CRM

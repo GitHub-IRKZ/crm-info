@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Ir\Crminfo\Client;
+namespace Irkz\Crminfo\Client;
 
-use Ir\Crminfo\Client\Response\InformationResponse;
+use Irkz\Crminfo\Client\Response\InformationResponse;
 
 /**
  * Mock клиента для получения информации из CRM
@@ -12,7 +12,7 @@ class Mock implements ClientInterface
     /**
      * Получает информацию о проекте из CRM
      *
-     * @return \Ir\Crminfo\Client\Response\InformationResponse
+     * @return \Irkz\Crminfo\Client\Response\InformationResponse
      */
     public function getInfo(): InformationResponse
     {

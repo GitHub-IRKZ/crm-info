@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Ir\Crminfo\Console\Commands;
+namespace Irkz\Crminfo\Console\Commands;
 
 use DateTime;
 use DateTimeZone;
@@ -62,7 +62,7 @@ class CrminfoCommand extends Command
     private function putInfo(): bool|string
     {
         try {
-            /** @var \Ir\Crminfo\Client\Response\InformationResponse $information */
+            /** @var \Irkz\Crminfo\Client\Response\InformationResponse $information */
             $information = app('crm-info')->getInfo();
 
             if ($information->getStatusCode() !== Response::HTTP_OK) {

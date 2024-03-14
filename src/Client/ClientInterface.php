@@ -1,8 +1,8 @@
 <?php
 
-namespace Ir\Crminfo\Client;
+namespace Irkz\Crminfo\Client;
 
-use Ir\Crminfo\Client\Response\InformationResponse;
+use Irkz\Crminfo\Client\Response\InformationResponse;
 
 /**
  * Интерфейс клиента для получения информации из CRM

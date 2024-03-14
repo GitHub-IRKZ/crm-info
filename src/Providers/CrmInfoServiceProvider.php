@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace Ir\Crminfo\Providers;
+namespace Irkz\Crminfo\Providers;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
-use Ir\Crminfo\View\Components\Footer;
+use Irkz\Crminfo\View\Components\Footer;
 
 /**
  * Провайдер для регистрации сервисов
@@ -40,10 +40,10 @@ class CrmInfoServiceProvider extends ServiceProvider
         // Регистрация клиента для получения информации из CRM
         $this->app->singleton('crm-info', function() {
             if (!app()->environment('production')) {
-                return new \Ir\Crminfo\Client\Mock();
+                return new \Irkz\Crminfo\Client\Mock();
             }
 
-            return new \Ir\Crminfo\Client\Http();
+            return new \Irkz\Crminfo\Client\Http();
         });
 
         $this->launchCommand();
@@ -55,9 +55,9 @@ class CrmInfoServiceProvider extends ServiceProvider
     protected function launchCommand(): void
     {
         $this->commands([
-            \Ir\Crminfo\Console\Commands\CrminfoCommand::class,
+            \Irkz\Crminfo\Console\Commands\CrminfoCommand::class,
         ]);
 
-        Artisan::call(\Ir\Crminfo\Console\Commands\CrminfoCommand::class);
+        Artisan::call(\Irkz\Crminfo\Console\Commands\CrminfoCommand::class);
     }
 }
