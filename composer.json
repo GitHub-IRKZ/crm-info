@@ -3,7 +3,7 @@
     "description":       "IR-crm client for getting info about project",
     "minimum-stability": "stable",
     "license":           "MIT",
-    "version":           "1.0.0",
+    "version":           "1.0.1",
     "authors":           [
         {
             "name":     "Lyos Anatoliy",
