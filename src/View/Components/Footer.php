@@ -16,7 +16,7 @@ class Footer extends Component
     {
         try {
             $data = json_decode(
-                Storage::disk(config('crm-info.storageDisk'))->get(config('crm-info.fileName')),
+                Storage::disk(config('crm-info.storage'))->get(config('crm-info.fileName')),
                 true
             );
 

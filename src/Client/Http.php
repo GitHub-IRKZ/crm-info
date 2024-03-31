@@ -33,7 +33,11 @@ class Http implements ClientInterface
     public function getInfo(): InformationResponse
     {
         return new InformationResponse(
-            $this->client->request('GET', '/api/v1/information')
+            $this->client->request('GET', '/api/v1/information', [
+                'headers' => [
+                    'X-Company-Token' => config('crm-info.token')
+                ]
+            ])
         );
     }
 }

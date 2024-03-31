@@ -32,12 +32,12 @@ class CrminfoCommand extends Command
      * Execute the console command.
      *
      * @return bool|string
-     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Exception
      */
     public function handle(): bool|string
     {
         $fileName    = config('crm-info.fileName');
-        $disk        = config('crm-info.storageDisk');
+        $disk        = config('crm-info.storage');
         $currentDate = (new DateTime('now', new DateTimeZone(config('app.timezone'))));
 
         // если файла нет, то создаем его и записываем в него информацию
@@ -45,10 +45,16 @@ class CrminfoCommand extends Command
             return $this->putInfo();
         }
 
-        $information = json_decode(Storage::disk($disk)->get($fileName), true);
+        try {
+            $information = json_decode(Storage::disk($disk)->get($fileName), true);
 
-        if ($currentDate > new DateTime($information['expireAt'])) {
-            return $this->putInfo();
+            if ($currentDate > new DateTime($information['expireAt'])) {
+                return $this->putInfo();
+            }
+        } catch (\Throwable $throwable) {
+            Log::error('[ir-crm] Ошибка при получении информации', [
+                'exception' => $throwable
+            ]);
         }
 
         return false;
@@ -71,12 +77,10 @@ class CrminfoCommand extends Command
                 return false;
             }
 
-            // устанавливаем дату истечения на 1 день назад, для того,
-            // чтоб при первом запуске выполнился запрос к CRM
             $expirationDate = (new \DateTimeImmutable('now', new \DateTimeZone(config('app.timezone'))))
                 ->add(new \DateInterval(config('crm-info.timeUntilUpdate')));
 
-            return Storage::disk(config('crm-info.storageDisk'))->put(config('crm-info.fileName'), json_encode([
+            return Storage::disk(config('crm-info.storage'))->put(config('crm-info.fileName'), json_encode([
                 'expireAt' => $expirationDate->format(DATE_ATOM),
                 'data'     => $information->getContents(),
             ]));

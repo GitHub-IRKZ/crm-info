@@ -6,14 +6,19 @@ return [
      * Настройки для работы с клиентом
      */
     'client' => [
-        'base_uri' => 'http://ir-crm-nginx',
+        'base_uri' => 'https://crm.ir.kz',
         'timeout'  => 5.0,
     ],
 
     /**
+     * Токен для компании для получения информации из CRM
+     */
+    'token' => env('CRM_INFO_TOKEN'),
+
+    /**
      * Диск для хранения информации
      */
-    'storageDisk' => 'local',
+    'storage' => 'local',
 
     /**
      * Время до следующего запроса новой информации
