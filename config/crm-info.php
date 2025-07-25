@@ -7,7 +7,7 @@ return [
      */
     'client' => [
         'base_uri' => 'https://crm.ir.kz',
-        'timeout'  => 5.0,
+        'timeout'  => 2.0,
     ],
 
     /**
