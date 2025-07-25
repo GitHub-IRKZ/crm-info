@@ -5,6 +5,7 @@ namespace Irkz\Crminfo\Providers;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\ServiceProvider;
 use Irkz\Crminfo\View\Components\Footer;
+use Irkz\Crminfo\View\Components\Login;
 
 /**
  * Провайдер для регистрации сервисов
@@ -35,6 +36,7 @@ class CrmInfoServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'crm-info');
         $this->loadViewComponentsAs('crm-info', [
             Footer::class,
+            Login::class,
         ]);
 
         // Регистрация клиента для получения информации из CRM
